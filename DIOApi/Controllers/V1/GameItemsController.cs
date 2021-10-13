@@ -8,16 +8,17 @@ using Microsoft.EntityFrameworkCore;
 using DIOApi.DAL;
 using DIOApi.DTOs;
 using DIOApi.Exceptions;
+using Microsoft.AspNetCore.Authorization;
 
 namespace DIOApi.Controllers
 {
+    [Authorize]
     [Route("api/v1/[controller]")]
     [ApiController]
     public class GameItemsController : ControllerBase
     {
         private readonly GameDbContext _context;
         
-
         public GameItemsController(GameDbContext context)
         {
             _context = context;
